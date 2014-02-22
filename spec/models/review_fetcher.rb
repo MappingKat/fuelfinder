@@ -9,7 +9,7 @@ class ReviewFetcher
 
   def self.connection
     if Rails.env.production?
-      uri = "http://freshfinder.us"
+      uri = "http://fuelfinder.tk"
     else
       uri = "http://localhost:8080"
     end
@@ -21,7 +21,7 @@ class ReviewFetcher
   end
 
   def self.find(market_id)
-    response = connection.get "/api/v1/reviews/#{market_id}.json"
+    response = connection.get "/api/v1/reviews/#{station_id}.json"
     body = JSON.parse(response.body)
     body.map {|review| Review.new(review)}
   end

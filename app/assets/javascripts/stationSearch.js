@@ -7,23 +7,26 @@ jQuery(document).ready(function() {
     container.addClass('st-effect-2');
 
     Search.searchInput = $("#search-input").val();
-    Search.route = "/api/v1/search/markets?zipcode=" + Search.searchInput;
-    $.getJSON( Search.route, function(data) {
+    Search.route = "/api/alt-fuel-stations/v1/nearest.json?api_key=DEMO_KEY&location=" + Search.searchInput ;
+    
+    $.getJSON( "http://developer.nrel.gov" + Search.route , function(data) {
+      console.log(data.fuel_stations[0]);
+
       var list = $(".listings");
       list.empty();
-       if (data[0] === undefined) {
-          $(list).append("<li class='no-results'> Nothing Found </li><div class='sad-veggies'></div>)");
+       if (data.length === 0) {
+          $(list).append("<li class='no-results'> Nothing Found </li>)");
           var map = Map.mappy;
           map.setView([ 40.48086, -85.339523 ], 4);
       };
         
-      $.each(data, function(index, market){
+      $.each(data, function(index, station){
         if (index == 0) {
           var map = Map.mappy;
-          map.setView([ market.address.lat, market.address.long], 11);
+          map.setView([ data.latitude, data.longitude], 11);
         };
 
-        var markerLayer = Map.addMarkerToLayer(market).addTo(Map.mappy);
+        var markerLayer = Map.addMarkerToLayer(station).addTo(Map.mappy);
 
         markerLayer.eachLayer(function (layer) {
           var content = Map.addPopupToLayer(layer);
@@ -34,7 +37,7 @@ jQuery(document).ready(function() {
           });
         });
 
-        $(list).append('<li><a class="icon icon-data market-item" data-market-id=' + market.id + '>' + market.name + '<p class="smaller"> <strong>' + market.address.street + '</strong> ' + market.address.city + ', ' + market.address.state + '</p></a></li>');
+        $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + station.id + '>' + station.name + '<p class="smaller"> <strong>' + station.address.street + '</strong> ' + station.address.city + ', ' + station.address.state + '</p></a></li>');
       });
     });
     Search.addCloseListeners();
@@ -56,6 +59,8 @@ jQuery(document).ready(function() {
       Search.performSearch();
     };
   });
-
 });
+
+// KigYxE5IUwsFlhOF3hjkpR8J0bx8sSTw8r5vfyYx
+
 

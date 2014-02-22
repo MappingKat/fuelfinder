@@ -1,10 +1,10 @@
 FreshFinder:
 ============
-##The Place to Find and Review Farmers' Markets
+##The Place to Find and Review Farmers' stations
 
 [![Code Climate](https://codeclimate.com/repos/52f04f28e30ba07a88003382/badges/ab46d8f8841f0875ddea/gpa.png)](https://codeclimate.com/repos/52f04f28e30ba07a88003382/feed)
 
-This site can be found at www.freshfinder.us.  It is a site dedicated to finding farmers' markets and fresh food in your area using USDA data. The end goal is to be able to provide crowd-sourced reviews of the markets so that FreshFinder users have a more complete picture of market information (e.g., what is sold, what past visitors found to be good, etc).
+This site can be found at www.freshfinder.us.  It is a site dedicated to finding farmers' stations and fresh food in your area using USDA data. The end goal is to be able to provide crowd-sourced reviews of the stations so that FreshFinder users have a more complete picture of station information (e.g., what is sold, what past visitors found to be good, etc).
 
 Homepage
 -------
@@ -12,9 +12,9 @@ Homepage
 ![Homepage](screenshot.png)
 
 
-Market Page
+station Page
 -----------
-![Market](https://s3.amazonaws.com/bearlyhungry/market.png)
+![station](https://s3.amazonaws.com/bearlyhungry/station.png)
 
 
 
@@ -22,7 +22,7 @@ Market Page
 
 To checkout this project, get the code:
 
-`git clone git@github.com:FreshFinder/frontend.git` (you should also grab the other services: to-the-market and reviews-api)
+`git clone git@github.com:FreshFinder/frontend.git` (you should also grab the other services: to-the-station and reviews-api)
 
 Go into the directory:
 

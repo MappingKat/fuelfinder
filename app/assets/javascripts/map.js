@@ -1,8 +1,9 @@
 var Map = {};
 
-Map.addMarkerToLayer = function(val) {
-  var lng =  parseFloat(val.address.long),
-  lat =  parseFloat(val.address.lat),
+Map.addMarkerToLayer = function(val){
+  console.log(val);
+  var lng =  parseFloat(val.longitude),
+  lat =  parseFloat(val.latitude),
   name = val.name,
   id = val.id,
   markerLayer = L.mapbox.markerLayer({
@@ -12,15 +13,15 @@ Map.addMarkerToLayer = function(val) {
       coordinates: [lng , lat]
     },
     properties: {
-      market_id: id,
-      name: name,
-      description: val.address.description,
-      street: val.address.street,
-      city: val.address.city,
-      state: val.address.state,
+      station_id: id,
+      name: station_name,
+      description: val.intersection_directions,
+      street: val.street_address,
+      city: val.city,
+      state: val.state,
       'marker-size': 'medium',
-      'marker-color': '#2ca25f',
-      'marker-symbol': 'park2'
+      'marker-color': '#ffa500',
+      'marker-symbol': 'car'
     }
   })
   return markerLayer;
@@ -28,11 +29,10 @@ Map.addMarkerToLayer = function(val) {
 
 Map.addPopupToLayer = function(layer) {
 
-  var market = layer.feature.properties
-  var addressDescription = market.description
-  var street = market.street
-  var city = market.city
-  var state = market.state
+  var station = layer.feature.properties
+  var street = station.address_street
+  var city = station.city
+  var state = station.state
 
   if (city === null ) {city = ""}
 
@@ -50,7 +50,7 @@ Map.addPopupToLayer = function(layer) {
   addressDescription = processAddress(addressDescription);
   street = processStreet(street);
 
-  var content = '<img class="wheat"/><div class="main-info"><h4 class="namer"><strong>'+ "<a href='/markets/" + market.market_id + "'" + '>' + market.name + '</a>' + '</strong></h4>' + '<span class="addressy">' + city + ',  ' + state + '</span></br><span class="location">' + addressDescription + '</span></div>';
+  var content = '<img class="fuel"/><div class="main-info"><h4 class="namer"><strong>'+ "<a href='/stations/" + station.station_id + "'" + '>' + station.name + '</a>' + '</strong></h4>' + '<span class="addressy">' + city + ',  ' + state + '</span></br><span class="location">' + addressDescription + '</span></div>';
   
   return content;
 }

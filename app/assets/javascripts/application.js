@@ -15,8 +15,8 @@
 //= require modernizr.custom
 //= require map
 //= require modal
-//= require markets
+//= require stations
 //= require geolocation
 //= require classie
 //= require sidebarEffects
-//= require marketSearch
+//= require stationSearch

@@ -1,14 +1,14 @@
 class Address
   attr_reader :street, :city, :state, :zipcode, :lat, :lng, :description
 
-  def initialize(market_address)
-    @street = market_address["street"]
-    @city = market_address["city"]
-    @state = market_address["state"]
-    @zipcode = market_address["zipcode"]
-    @lat = market_address["lat"]
-    @lng = market_address["long"]
-    @description = market_address["description"]
+  def initialize(station_address)
+    @street = station_address["street"]
+    @city = station_address["city"]
+    @state = station_address["state"]
+    @zipcode = station_address["zipcode"]
+    @lat = station_address["lat"]
+    @lng = station_address["long"]
+    @description = station_address["description"]
   end
 
 

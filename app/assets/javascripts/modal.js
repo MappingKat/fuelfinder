@@ -1,16 +1,16 @@
 var Modal = {};
-Modal.addModalListener = function(payment, products, market_data, val){
-  var market = market_data.market
-  for( i = 0; i < market.payment_types.length; i++) {
-    payment.push(val.payment_types[i]);
-  };
+Modal.addModalListener = function(station_data, val){
+  var station = station_data.station
+  // for( i = 0; i < station.payment_types.length; i++) {
+  //   payment.push(val.payment_types[i]);
+  // };
 
-  for( i = 0; i < market.products.length; i++) {
-    products.push(val.products[i]);
-  };
-   var html = '<h3 class="name">' + market.name + '</h3>' + '<div><hr>' +
-'<div class="address">' + market.address.street + '</br>' + market.address.city + ', ' + market.address.state + '</div>' +
-'<div class="payments"><img src="assets/payment.png">' + payment.join(' ✤ ') + '<img src="assets/payment.png"></div>' + '<div class="products"><img src="assets/product.png">' + products.join(' ✿  ') + '<img src="assets/product.png"></div>';
+  // for( i = 0; i < station.products.length; i++) {
+  //   products.push(val.products[i]);
+  // };
+   var html = '<h3 class="name">' + station.name + '</h3>' + '<hr>' 
+// '+ <div class="address">' + station.address.street + '</br>' + station.address.city + ', ' + station.address.state + '</div>' +
+// '<div class="payments"><img src="assets/payment.png">' + payment.join(' ✤ ') + '<img src="assets/payment.png"></div>' + '<div class="products"><img src="assets/product.png">' + products.join(' ✿  ') + '<img src="assets/product.png"></div>';
 
   $(".md-content").html(html);
   $("#modal").show();

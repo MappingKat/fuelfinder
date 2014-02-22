@@ -1,0 +1,72 @@
+<div class="show-page">
+  <header class="show-page-header">
+    <h1><a href='/'>FuelFinder <span>Find the alternative fuel stations near you...</span></a>
+    </h1>
+  </header>
+
+  <div id="page-container">
+    <div id="show-content">
+      <h3 class="name"><%= @station.name %></h3>
+      <div id="directions">
+        <div id="map">
+          <img src="http://api.tiles.mapbox.com/v3/pzula.h69mf89n/pin-m-car(<%= @station.address.lng %>,<%= @station.address.lat %>)/<%= @station.address.lng %>,<%= @station.address.lat %>,15/750x300.png">
+        </div>
+        <%= render partial: 'address', locals: { station: @station } %>
+      </div>
+
+      <div class="show-column1">
+        <div class="time">
+          <%= render partial: 'schedule', locals: { station: @station } %>
+        </div>
+
+        <div class="products">
+          <% unless @station.products.nil? %>
+          <strong>Products: </strong>
+          <%= @station.products.join(', ') %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="show-column2">
+        <div class="season">
+          <% unless @station.season1.nil? %>
+            <strong>Seasons:</strong>
+            <%= render partial: 'station_season', locals: { station: @station } %>
+          <% end %>
+        </div>
+        <div class="payments">
+          <% unless @station.payment_types.nil? %>
+          <strong>Payments Accepted:</strong> <%= @station.payment_types.join(", ") %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+    <button id="review"> Review this station </button>
+
+    <div class='review-form'>
+      <button id="close-form"> x </button>
+      <h3 class="form-header"> Share what you know about this station! </h3>
+      <%= render partial: '/reviews/review_form', locals: { station_id: @station_id } %>
+    </div>
+
+    <br>
+    <div class="reviews-summary">
+      <h2>Reviews for this station:</h2>
+      <%= render partial:"reviews/review", collection: @reviews %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.review-form').hide();
+  $("button#review").click(function (e){
+  $('.review-form').toggle();
+  });
+  $("button#close-form").click(function (e){
+ $('.review-form').hide();
+  });
+</script>
+
+

@@ -8,11 +8,10 @@ var loadMap = function(position) {
 
   var coords = userPosition;
   var coordsForUrl = coords[0] + "," + coords[1];
-  var marketData = "/api/v1/search/markets?zipcode=" + coordsForUrl;
+  var stationData = "/api/alt-fuel-stations/v1/nearest.json?api_key=DEMO_KEY&longitude=" + coords[0] + "&latitude=" + coords[1];
 
-  $.getJSON( marketData, function( data ) {
-    $.each(data, function(index, val) {
-
+  $.getJSON("http://developer.nrel.gov", function( stationData ) {
+    $.each(stationData, function(index, val) {
       var markerLayer = Map.addMarkerToLayer(val).addTo(mappy);
 
        markerLayer.eachLayer(function (layer) {
@@ -34,9 +33,11 @@ var loadMap = function(position) {
             street = '<strong>' + street + '</strong>, '
           }
 
-          $(list).append('<li><a class="icon icon-data market-item" data-market-id=' + val.id + '>' + val.name + '<p class="smaller">' + street + val.address.city + ', ' + val.address.state + '</p>' + '</a></li>');
+          $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + val.id + '>' + val.name + '<p class="smaller">' + street + val.city + ', ' + val.state + '</p>' + '</a></li>');
        });
       });
     });
   };
+
+  // http://api.data.gov/nrel/api/alt-fuel-stations/v1.json
 
