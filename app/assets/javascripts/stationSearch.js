@@ -6,38 +6,40 @@ jQuery(document).ready(function() {
     container.addClass('st-menu-open');
     container.addClass('st-effect-2');
 
-    Search.searchInput = $("#search-input").val();
-    Search.route = "/api/alt-fuel-stations/v1/nearest.json?api_key=DEMO_KEY&location=" + Search.searchInput ;
+    var searchInput = $("#search-input").val();
+    var route = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=GOMRjS7IKgQCRujXnzJuEWpTEdnzlQgp3s2ZlI9B&location=" + searchInput ;
     
-    $.getJSON( "http://developer.nrel.gov" + Search.route , function(data) {
-      console.log(data.fuel_stations[0]);
+    $.getJSON( route , function(data) {
+      debugger
 
+      var map = Map.mappy;
       var list = $(".listings");
       list.empty();
-       if (data.length === 0) {
-          $(list).append("<li class='no-results'> Nothing Found </li>)");
-          var map = Map.mappy;
-          map.setView([ 40.48086, -85.339523 ], 4);
+      if (data.fuel_stations.length === 0) {
+        $(list).append("<li class='no-results'> Nothing Found </li>)");
+        map.setView([ 40.48086, -85.339523 ], 4);
+        return
       };
-        
-      $.each(data, function(index, station){
-        if (index == 0) {
-          var map = Map.mappy;
-          map.setView([ data.latitude, data.longitude], 11);
-        };
 
-        var markerLayer = Map.addMarkerToLayer(station).addTo(Map.mappy);
-
+      var first_station = data.fuel_stations[0]
+      map.setView([ first_station.latitude, first_station.longitude], 11);
+      
+      $.each(data.fuel_stations, function(index, fuel_station) {
+        var markerLayer = Map.addMarkerToLayer(fuel_station).addTo(map);
         markerLayer.eachLayer(function (layer) {
-          var content = Map.addPopupToLayer(layer);
-          layer.bindPopup(content, {
-            closeButton: false });
+          var content = Map.createPopupContent(fuel_station);
+          layer.bindPopup(content, {closeButton: false });
           layer.on('click', function(e) {
-            mappy.setView(e.latlng);
+            map.setView(e.latlng);
           });
         });
+        if (fuel_station.street_address) {
+          var street = '<strong>' + fuel_station.street_address + '</strong>, '
+        } else {
+          var street = ""
+        }
 
-        $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + station.id + '>' + station.name + '<p class="smaller"> <strong>' + station.address.street + '</strong> ' + station.address.city + ', ' + station.address.state + '</p></a></li>');
+        $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + fuel_station.id + '>' + fuel_station.station_name + '<p class="smaller">' + street + fuel_station.city + ', ' + fuel_station.state + '</p>' + '</a></li>');
       });
     });
     Search.addCloseListeners();
@@ -60,7 +62,3 @@ jQuery(document).ready(function() {
     };
   });
 });
-
-// KigYxE5IUwsFlhOF3hjkpR8J0bx8sSTw8r5vfyYx
-
-

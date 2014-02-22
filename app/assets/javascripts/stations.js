@@ -1,4 +1,7 @@
-var loadMap = function(position) {
+// window.addToMap = function(item) {
+// }
+
+window.loadMap = function(position) {
   var coords = position.coords;
   userPosition = [coords.latitude, coords.longitude];
 
@@ -8,36 +11,33 @@ var loadMap = function(position) {
 
   var coords = userPosition;
   var coordsForUrl = coords[0] + "," + coords[1];
-  var stationData = "/api/alt-fuel-stations/v1/nearest.json?api_key=DEMO_KEY&longitude=" + coords[0] + "&latitude=" + coords[1];
+  var stationData = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=GOMRjS7IKgQCRujXnzJuEWpTEdnzlQgp3s2ZlI9B&location=" + userPosition ;
 
-  $.getJSON("http://developer.nrel.gov", function( stationData ) {
-    $.each(stationData, function(index, val) {
-      var markerLayer = Map.addMarkerToLayer(val).addTo(mappy);
+  $.getJSON( stationData, function( data ) {
 
-       markerLayer.eachLayer(function (layer) {
-         var content = Map.addPopupToLayer(layer);
-         layer.bindPopup(content, {
-           closeButton: false });
-         layer.on('click', function(e) {
-           mappy.setView(e.latlng);
-         });
+    var list = $(".listings");
+
+    $.each(data.fuel_stations, function(index, fuel_station) {
+
+      var markerLayer = Map.addMarkerToLayer(fuel_station).addTo(mappy);
+
+      // Map.bindPopupContentToMarkup(markerLayer)
+      markerLayer.eachLayer(function (layer) {
+        var content = Map.createPopupContent(fuel_station);
+        layer.bindPopup(content, {closeButton: false });
+        layer.on('click', function(e) {
+          mappy.setView(e.latlng);
+        });
       });
 
-      var list = $(".listings");
-      $.each(data, function(index, val){
-          var street = val.address.street
-          
-          if (street == null ) {
-            street = ""
-          } else {
-            street = '<strong>' + street + '</strong>, '
-          }
+      // Map.addStationToList(fuel_station)      
+      if (fuel_station.street_address) {
+        var street = '<strong>' + fuel_station.street_address + '</strong>, '
+      } else {
+        var street = ""
+      }
 
-          $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + val.id + '>' + val.name + '<p class="smaller">' + street + val.city + ', ' + val.state + '</p>' + '</a></li>');
-       });
-      });
+      $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + fuel_station.id + '>' + fuel_station.station_name + '<p class="smaller">' + street + fuel_station.city + ', ' + fuel_station.state + '</p>' + '</a></li>');
     });
-  };
-
-  // http://api.data.gov/nrel/api/alt-fuel-stations/v1.json
-
+  });
+}
