@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require modernizr.custom
+//= require stations
 //= require map
 //= require modal
-//= require stations
-//= require geolocation
 //= require classie
 //= require sidebarEffects
 //= require stationSearch
+//= require geolocation
+//= require websocket

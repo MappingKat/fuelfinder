@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-  var Geolocation = {};
+  Geolocation = {};
 
   Geolocation.getLocation = function() {
     if (navigator.geolocation) {
