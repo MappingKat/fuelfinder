@@ -20,3 +20,4 @@
 //= require sidebarEffects
 //= require stationSearch
 //= require geolocation
+//= require websocket

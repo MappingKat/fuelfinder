@@ -1,7 +1,6 @@
 var Map = {};
 
 Map.addMarkerToLayer = function(data){
-  console.log(data);
   var lng =  data.longitude,
   lat =  data.latitude,
   name = data.station_name,
