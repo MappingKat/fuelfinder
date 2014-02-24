@@ -2,7 +2,7 @@ FuelFinder:
 ============
 ##The Place to Find and Review Alternative Fuel stations
 
-This site can be found at www.fuelfinder.tk.  It is a site dedicated to finding farmers' stations and fresh food in your area using USDA data. The end goal is to be able to provide crowd-sourced reviews of the stations so that FreshFinder users have a more complete picture of station information (e.g., what is sold, what past visitors found to be good, etc).
+This site can be found at www.fuelfinder.tk.  It is a site dedicated to finding alternative fuel' stations in your area. 
 
 Homepage
 -------

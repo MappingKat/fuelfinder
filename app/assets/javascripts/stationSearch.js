@@ -10,27 +10,26 @@ jQuery(document).ready(function() {
     var route = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=GOMRjS7IKgQCRujXnzJuEWpTEdnzlQgp3s2ZlI9B&location=" + searchInput ;
     
     $.getJSON( route , function(data) {
-      debugger
-
-      var map = Map.mappy;
+      var mappy = Map.mappy;
       var list = $(".listings");
+
       list.empty();
       if (data.fuel_stations.length === 0) {
         $(list).append("<li class='no-results'> Nothing Found </li>)");
-        map.setView([ 40.48086, -85.339523 ], 4);
+        mappy.setView([ 40.48086, -85.339523 ], 4);
         return
       };
 
       var first_station = data.fuel_stations[0]
-      map.setView([ first_station.latitude, first_station.longitude], 11);
+      mappy.setView([ first_station.latitude, first_station.longitude], 11);
       
       $.each(data.fuel_stations, function(index, fuel_station) {
-        var markerLayer = Map.addMarkerToLayer(fuel_station).addTo(map);
+        var markerLayer = Map.addMarkerToLayer(fuel_station).addTo(mappy);
         markerLayer.eachLayer(function (layer) {
           var content = Map.createPopupContent(fuel_station);
           layer.bindPopup(content, {closeButton: false });
           layer.on('click', function(e) {
-            map.setView(e.latlng);
+            mappy.setView(e.latlng);
           });
         });
         if (fuel_station.street_address) {

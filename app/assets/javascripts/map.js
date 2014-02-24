@@ -28,7 +28,7 @@ Map.addMarkerToLayer = function(data){
 };
 
 Map.createPopupContent = function(data) {
-  var content = '<img class="fuel"/><div class="main-info"><h4 class="namer"><strong>'+ "<a href='/stations/" + data.id + "'" + '>' + data.station_name + '</a>' + '</strong></h4>' + '<span class="addressy">' + data.city + ',  ' + data.state + '</span></div>';
+  var content = '<img class="fuel"/><div class="main-info"><h4 class="namer"><strong>'+ "<a href='/stations/" + data.id + "'" + '>' + data.station_name + '</a><div>' + '</strong></h4>' + '<span class="addressy">' + data.city + ',  ' + data.state + '</span>';
   
   return content;
 };

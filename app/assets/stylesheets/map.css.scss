@@ -10,15 +10,17 @@
 
 .leaflet-popup-content img.fuel {
   background: image-url('fuel.png') no-repeat;
-  width: .5em;
-  height: 4em;
-  float: left;
+  width: 1em;
+  height: 3em;
+  float: right;
   padding-right: 4em;
-  position: relative;
+  padding-top: 2em;
+
 }
 
  h4.namer a{
   font-size: 1.1em;
+  width: 30%;
   line-height:0px;
   text-align:left;
   text-transform: uppercase;
