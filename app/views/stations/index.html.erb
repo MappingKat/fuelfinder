@@ -1,6 +1,6 @@
 <div id="st-container" class="st-container">
   <nav class="st-menu st-effect-2" id="menu-2">
-    <h2 class="icon icon-stack">Results</h2>
+    <h2 class="icon icon-stack"></h2>
     <div class="body row scroll-y">
       <ul class="listings">
       </ul>
@@ -12,15 +12,16 @@
 <div class="st-content">
       <div id='mappy'></div>
       <div class="st-content-inner">
-        <header class="header">
-          <div id="st-trigger-effects">
-            <button data-effect="st-effect-2"><%= image_tag "menu.svg", class: 'stacker' %></button>
-          </div>
           <h1 class="codrops-header">
-            FreshFinder
-            <div id="search-box">
-              <input id="search-input" type="text" placeholder="Search for a market..."></input>
-              <input id="search-button" type="submit" value="Search">
+            FuelFinder
+            <div id="search" class="search">
+              <input class="search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+              <input class="search-submit" type="submit" value="">
+              <span class="icon-search"></span>
+            </div>
+            <!-- <div id="search-box">
+              <input id="search-input" type="text" placeholder="Find alternative fuel stations"></input>
+              <!-- <input id="search-button" type="submit" value="Search"> -->
             </div>
           </h1>
         </header>

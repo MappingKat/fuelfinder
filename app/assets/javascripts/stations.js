@@ -5,7 +5,7 @@ window.loadMap = function(position) {
   var coords = position.coords;
   userPosition = [coords.latitude, coords.longitude];
 
-  var mappy = L.mapbox.map("mappy", "pzula.h69mf89n", { zoomControl: false }).setView(userPosition, 10);
+  var mappy = L.mapbox.map("mappy", "katrina.hc7c569e", { zoomControl: false }).setView(userPosition, 10);
   new L.Control.Zoom({ position: 'topright' }).addTo(mappy);
   Map.mappy = mappy;
 

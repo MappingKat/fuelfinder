@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require searchButton
 //= require modernizr.custom
 //= require stations
 //= require map

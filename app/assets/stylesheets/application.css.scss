@@ -12,24 +12,9 @@ body {
   padding:0;
   }
 
-.stacker {
-  width: 20px;
-  height: 20px;
-  }
-
-#search-box {
-  padding: .6em 0 1em 0em;
-  font-size: 50%;
-  color: #aca89a;
-  text-align: center;
-  font-family: 'Lato', Arial, sans-serif;
-}
 
 /*---------------  side bar ---------------------*/
-.smaller{
-  font-size: 8px;
-  color: #000;
-}
+
 .body.row { top: 75px; bottom: 50px; }
 .row, .col { overflow: hidden; position: absolute; }
 .row { left: 0; right: 0; }
@@ -37,21 +22,7 @@ body {
 .scroll-x { overflow-x: auto; }
 .scroll-y { overflow-y: auto; }
 
-
-.leaflet-popup-content-wrapper, .map-legends, .map-tooltip {
-  background: #962626;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-}
-
 /*---------------------- show ------------------------*/
-
-div.show-page {
-  background: image-url('gas_pump.jpg') no-repeat center center;
-  min-height: 100%;
-  background-size:cover;
-}
-
 header.show-page-header {
   text-align: center;
   background: image-url('opacitydark.png');
@@ -59,122 +30,62 @@ header.show-page-header {
 }
 
 .show-page-header h1 {
-  margin: -1em;
-  font-weight: 300;
-  font-size: 2.625em;
-  line-height: 1.4;
-}
-
-.show-page-header span {
-  padding: 0 0 0.6em 0.1em;
-  font-size: 60%;
-  color: #aca89a;
-}
-
-li.no-results {
-  font-size: 70%;
-  color: #aca89a;
+  margin: -1.3em 0 2px;
   font-weight: 200;
-  font-size: 2.625em;
-  padding-left: 0.25em;
-  padding-left: 0.25em;
-}
-
-#page-container {
-  margin: 0 auto;
-  padding-top: 75px;
-  padding-bottom: 50px;
-  width: 750px;
-}
-
-div#show-content {
-  background: image-url('opacitydark.png');
-  width: 750px;
-  margin: 0 auto;
-  z-index: 999;
-  height: 100%;
+  font-size: 200%;
+  line-height: 1em;
 }
 
 .show-column1 {
-  -moz-column-count:2;
-  -webkit-column-count:2;
-  column-count:2;
-  width: 720px;
-  height: 200px;
+  float: left;
+  width: 25%;
+  height: 100px;
   margin: 15px;
+  margin: 0 auto;
+  z-index: 999;
+  background-color: red;
+}
+
+#map img{
+  padding: 10px auto;
+  margin: 0 auto;
+  position: relative;
 }
 
 .show-column2 {
-  width: 720px;
-  margin: 15px;
-}
-
-.show-page div#map-images{
-  position: relative;
-  width: 750px;
-  height: 300px;
-  padding: 10px auto;
-}
-
-.show-page #directions {
-  width: 750px;
-  margin: 0;
-  padding-bottom: 10px;
-  font-size: 1em;
-  text-transform: capitalize;
-  text-align: center;
-  font-weight: 300;
-  background: image-url('opacitydark.png');
-}
-
-.show-page h3.name {
-  margin: 0 3% 0 3%;
-  padding: 0.4em;
-  text-align: center;
-  font-size: 2.4em;
-  font-weight: 300;
-  border-radius: 3px 3px 0 0;
-}
-
-.show-page .season {
-  display: block;
-}
-
-
-.show-page .address{
-  margin: 0;
-  padding: 0.2em;
-  text-align: center;
-  font-size: 1.5em;
-  text-transform: capitalize;
-  font-weight: 300;
-}
-
-.show-page div.payments {
-  text-transform: capitalize;
-}
-
-.show-page div.time,
-.show-page div.season,
-.show-page div.payments,
-.show-page div.products {
-  text-align: left;
-  font-size: 1.5em;
+  width: 75%;
+  float: right;
+  margin-left: 300px;
   font-weight: 300;
   padding: 5px;
-  margin: 0;
+  margin:0;
+  background-color: pink;
 }
+
+.show-content-1{
+  width: 38.5%;
+  height: 300px;
+  float: left;
+  position: relative;
+}
+
+.show-content-2{
+  width: 38.5%;
+  height: 300px;
+  float: right;
+  position: relative;
+}
+
 
 /*=--------------- review form -------------------*/
 fieldset {
   border:none;
 }
 
-.reviews-summary {
-  width: 750px;
-  position: relative;
-  text-align: center;
-}
+// .reviews-summary {
+//   position: relative;
+//   text-align: center;
+// }
 
 .reviewer-info {
   border: 0px;
@@ -192,14 +103,14 @@ fieldset {
 
 fieldset.review-name {
   float:left;
-  width: 46%;
-  margin-left: 10px;
+  width: 33%;
+  margin-left: 5px;
 }
 
 fieldset.review-email {
   float:right;
-  width: 46%;
-  margin-right: 10px;
+  width: 33%;
+  margin-right: 5px;
 }
 
 fieldset.review-body label {
@@ -208,18 +119,17 @@ fieldset.review-body label {
 }
 
 fieldset.review-body input[type=text] {
-  width:100%;
+  width:33%;
 }
 
 .review-form textarea {
   display:block;
-  width:100%
+  width:33%
 }
 
 .top-form-wrapper {
   overflow:hidden;
 }
-
 
 .review-body{
   border: 0px;
@@ -229,8 +139,8 @@ div.review-form, .reviews-summary {
   background: image-url('opacitydark.png');
   padding: 0.2em 2em;
   text-align: center;
-  font-size: 1.5em;
-  font-weight: 300;
+  font-size: 1em;
+  font-weight: 200;
   border-radius: 3px 3px 0 0;
 }
 
@@ -251,56 +161,52 @@ div.review-form, .reviews-summary {
     border-radius: 30px;
   }
 
-button.submit {
+// .cbp-mc-column1 {
+//   padding: 10px;
+//   width: 350px;
+//   float: left;
+// }
 
-}
+// .cbp-mc-column2 {
+//   padding: 10px;
+//   width: 350px;
+//   float: left;
+// }
 
-.cbp-mc-column1 {
-  padding: 10px;
-  width: 350px;
-  float: left;
-}
+// .cbp-mc-form label {
+//   display: block;
+//   padding: 40px 5px 5px 2px;
+//   font-size: 20px;
+//   text-transform: uppercase;
+//   letter-spacing: 1px;
+//   cursor: pointer;
+// }
 
-.cbp-mc-column2 {
-  padding: 10px;
-  width: 350px;
-  float: left;
-}
+// .cbp-mc-form input,
+// .cbp-mc-form textarea,
+// .cbp-mc-form select {
+//   font-family: 'Lato', Calibri, Arial, sans-serif;
+//   /*line-height: 10px;*/
+//   font-size: 20px;
+//   /*padding: 5px 10px;*/
+//   color: #fff;
+//   /*display: block;*/
+//   width: 100%;
+//   border: 1px solid #fff;
+//   background: transparent;
+// }
 
-.cbp-mc-form label {
-  display: block;
-  padding: 40px 5px 5px 2px;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
+// .cbp-mc-form input:focus,
+// .cbp-mc-form textarea:focus,
+// .cbp-mc-form label:active + input,
+// .cbp-mc-form label:active + textarea {
+//     outline: none;
+//     border: 3px solid #10689a;
+// }
 
-.cbp-mc-form input,
-.cbp-mc-form textarea,
-.cbp-mc-form select {
-  font-family: 'Lato', Calibri, Arial, sans-serif;
-  /*line-height: 10px;*/
-  font-size: 20px;
-  /*padding: 5px 10px;*/
-  color: #fff;
-  /*display: block;*/
-  width: 100%;
-  border: 1px solid #fff;
-  background: transparent;
-}
-
-.cbp-mc-form input:focus,
-.cbp-mc-form textarea:focus,
-.cbp-mc-form label:active + input,
-.cbp-mc-form label:active + textarea {
-    outline: none;
-    border: 3px solid #10689a;
-}
-
-.cbp-mc-form select:focus {
-    outline: none;
-}
+// .cbp-mc-form select:focus {
+//     outline: none;
+// }
 
 button.show-page  {
   display: block;

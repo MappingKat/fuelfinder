@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
     
     $.getJSON( route , function(data) {
       var mappy = Map.mappy;
-      var list = $(".listings");
+      var sidebar = $(".icon icon-stack");
 
       list.empty();
       if (data.fuel_stations.length === 0) {
@@ -32,13 +32,10 @@ jQuery(document).ready(function() {
             mappy.setView(e.latlng);
           });
         });
-        if (fuel_station.street_address) {
-          var street = '<strong>' + fuel_station.street_address + '</strong>, '
-        } else {
-          var street = ""
-        }
 
-        $(list).append('<li><a class="icon icon-data station-item" data-station-id=' + fuel_station.id + '>' + fuel_station.station_name + '<p class="smaller">' + street + fuel_station.city + ', ' + fuel_station.state + '</p>' + '</a></li>');
+        $(sidebar).append('data-station-id=' + fuel_station.id + '>' + fuel_station.station_name);
+
+          // '<li><a class="icon icon-data station-item" data-station-id=' + fuel_station.id + '>' + fuel_station.station_name + '</a></li>');
       });
     });
     Search.addCloseListeners();

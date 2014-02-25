@@ -1,8 +1,6 @@
 <div class="address">
-  <%= station.street %>
+  <%= @station.street %>
   <%= station.city %>, <%= station.state %>
   <%= station.zipcode %>
 </div>
-<% unless station.location.nil? %>
-  <strong>Location: </strong>  <%= station.location %>
-<% end %>
+
