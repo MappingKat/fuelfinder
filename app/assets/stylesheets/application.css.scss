@@ -29,6 +29,10 @@ header.show-page-header {
   padding-top: 3em;
 }
 
+.show-container{
+  
+}
+
 .show-page-header h1 {
   margin: -1.3em 0 2px;
   font-weight: 200;
@@ -39,41 +43,41 @@ header.show-page-header {
 .show-column1 {
   float: left;
   width: 25%;
-  height: 100px;
-  margin: 15px;
-  margin: 0 auto;
-  z-index: 999;
+  height: 250px;
   background-color: red;
 }
 
 #map img{
-  padding: 10px auto;
-  margin: 0 auto;
-  position: relative;
+  padding: 0 10px 10px 10px;
+  margin: 0 10px 10px 10px;
+  // position: absolute;
 }
 
 .show-column2 {
-  width: 75%;
+  width: 60%;
   float: right;
   margin-left: 300px;
   font-weight: 300;
   padding: 5px;
   margin:0;
+  height: 250px;
   background-color: pink;
 }
 
-.show-content-1{
-  width: 38.5%;
-  height: 300px;
-  float: left;
-  position: relative;
+.show-content-1 {
+  width: 50%;
+  height: 250px;
+  // float: left;
+  clear:both;
+  display: inline;
 }
 
-.show-content-2{
-  width: 38.5%;
-  height: 300px;
+.show-content-2 {
   float: right;
-  position: relative;
+  width: 50%;
+  height: 300px;
+  // clear:both;
+  // display: block;
 }
 
 
@@ -161,53 +165,6 @@ div.review-form, .reviews-summary {
     border-radius: 30px;
   }
 
-// .cbp-mc-column1 {
-//   padding: 10px;
-//   width: 350px;
-//   float: left;
-// }
-
-// .cbp-mc-column2 {
-//   padding: 10px;
-//   width: 350px;
-//   float: left;
-// }
-
-// .cbp-mc-form label {
-//   display: block;
-//   padding: 40px 5px 5px 2px;
-//   font-size: 20px;
-//   text-transform: uppercase;
-//   letter-spacing: 1px;
-//   cursor: pointer;
-// }
-
-// .cbp-mc-form input,
-// .cbp-mc-form textarea,
-// .cbp-mc-form select {
-//   font-family: 'Lato', Calibri, Arial, sans-serif;
-//   /*line-height: 10px;*/
-//   font-size: 20px;
-//   /*padding: 5px 10px;*/
-//   color: #fff;
-//   /*display: block;*/
-//   width: 100%;
-//   border: 1px solid #fff;
-//   background: transparent;
-// }
-
-// .cbp-mc-form input:focus,
-// .cbp-mc-form textarea:focus,
-// .cbp-mc-form label:active + input,
-// .cbp-mc-form label:active + textarea {
-//     outline: none;
-//     border: 3px solid #10689a;
-// }
-
-// .cbp-mc-form select:focus {
-//     outline: none;
-// }
-
 button.show-page  {
   display: block;
   margin: 0 auto;
@@ -221,6 +178,7 @@ button.show-page  {
   line-height:0.25em;
   right: 420px;
 }
+
 .station-reviews {
   margin: 0 0 0 0;
   padding: 0 0 0 0;

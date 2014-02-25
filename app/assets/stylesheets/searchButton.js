@@ -80,7 +80,7 @@
 
     function UISearch( el, options ) {  
         this.el = el;
-        this.inputEl = el.querySelector( 'form > input.search-input' );
+        this.inputEl = el.querySelector( 'input.search-input' );
         this._initEvents();
     }
 

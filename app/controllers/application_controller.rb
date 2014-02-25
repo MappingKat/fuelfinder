@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  http_basic_authenticate_with name: "admin", password: "ENV_SET", except: :index
   protect_from_forgery with: :exception
 
   after_filter :set_access_control_headers

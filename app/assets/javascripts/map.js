@@ -20,7 +20,7 @@ Map.addMarkerToLayer = function(data){
       city: data.city,
       state: data.state,
       'marker-size': 'medium',
-      'marker-color': '#ffa500',
+      'marker-color': '#e67e22',
       'marker-symbol': 'car'
     }
   });
@@ -28,8 +28,20 @@ Map.addMarkerToLayer = function(data){
 };
 
 Map.createPopupContent = function(data) {
-
-  var content = '<img class="fuel"/><div class="main-info"><h4 class="namer"><strong>'+ "<a href='/stations/" + data.id + "'" + '>' + data.station_name + '</a><div>' + '</strong></h4>' + '<span class="addressy">' + data.street_address + '<br>' + data.city + ',  ' + data.state + '</span>';
-  
+  var stationLink = $('#namer');
+  var content = '<img class="fuel"/><div class="main-info"><h4 class="namer"><strong>'+ "<a href='#' data-id='/stations/" + data.id + "'>" + data.station_name + '</a><div>' + '</strong></h4>' + '<span class="addressy">' + data.street_address + '<br>' + data.city + ',  ' + data.state + '</span>';
   return content;
+
+  // var currentId = 0;
+  // var baseURL = "station?id="
+  // $(stationLink).on('click', function(popup) {
+  // $("#results").append html
+  //   popup.preventDefault();
+  //   currentId = $(this).attr('data-id');
+  //   $("#show-container").popup("open", {transition:"slideup"});
+  // });
+
+  // $('#popup-menu').on('popupbeforeposition', function(){
+  //       $("#details").attr("href", baseURL + currentId);
+  //   });
 };

@@ -12,13 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require searchButton
 //= require modernizr.custom
 //= require stations
 //= require map
 //= require modal
 //= require classie
-//= require sidebarEffects
 //= require stationSearch
 //= require geolocation
+//= require searchButton
 //= require websocket

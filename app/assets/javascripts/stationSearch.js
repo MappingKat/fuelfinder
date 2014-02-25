@@ -42,13 +42,13 @@ jQuery(document).ready(function() {
   };
 
   Search.addCloseListeners = function() {
-    var container = $('.st-container');
-    $(".st-pusher").click(function (e) {
-      container.removeClass('st-menu-open');
-    });
+    // var container = $('.st-container');
+    // $(".st-pusher").click(function (e) {
+    //   container.removeClass('st-menu-open');
+    // });
   };
 
-  $("#search-button").click(function (e) {
+  $("#search-submit").click(function (e) {
     Search.performSearch();
   });
 

@@ -3,16 +3,11 @@
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'codropsicons';
-	src:url('../fonts/codropsicons/codropsicons.eot');
-	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
-		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
-		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
 }
 
 body {
 	background: #444;
-	color: #ffae19;
+	color: #e67e22;
 	font-weight: 300;
 	font-family: 'Lato', Calibri, Arial, sans-seriff;
 }
@@ -52,21 +47,6 @@ h1.codrops-header  {
 	font-size: 2.625em;
 }
 
-.info {
-	text-align: center;
-	font-size: 1.5em;
-	margin-top: 3em;
-	clear: both;
-	padding: 3em 0;
-	opacity: 0.7;
-	color: #aca89a;
-}
-
-.info a {
-	font-weight: 700;
-	font-size: 0.9em;
-}
-
 @media screen and (max-width: 46.0625em) {
 	.column {
 		width: 100%;
@@ -104,11 +84,12 @@ h1.codrops-header  {
 
 .search {
 	position: relative;
-	margin-top: 10px;
+	margin-right: 7%;
 	width: 0%;
-	min-width: 60px;
-	height: 60px;
+	min-width: 50px;
+	height: 50px;
 	float: right;
+
 	overflow: hidden;
 	-webkit-transition: width 0.3s;
 	-moz-transition: width 0.3s;
@@ -124,7 +105,7 @@ h1.codrops-header  {
 	outline: none;
 	background: #fff;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	margin: 0;
 	z-index: 10;
 	padding: 20px 65px 20px 20px;
@@ -135,7 +116,6 @@ h1.codrops-header  {
 
 input[type="search"].search-input {
 	-webkit-appearance: none;
-	-webkit-border-radius: 0px;
 }
 
 .search-input::-webkit-input-placeholder {
@@ -156,15 +136,14 @@ input[type="search"].search-input {
 
 .icon-search,
 .search-submit  {
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	display: block;
 	position: absolute;
 	right: 0;
 	top: 0;
 	padding: 0;
 	margin: 0;
-	line-height: 60px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -184,18 +163,13 @@ input[type="search"].search-input {
 	color: #fff;
 	background: #e67e22;
 	z-index: 90;
-	font-size: 22px;
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
 	-webkit-font-smoothing: antialiased;
 }
 
 .icon-search:before {
-	content: "\e000";
+	content: image-url('search.png');
+	padding: 10px auto;
+	margin: 10px auto;
 }
 
 /* Open state */
