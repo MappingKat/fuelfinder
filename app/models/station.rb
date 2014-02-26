@@ -24,5 +24,3 @@ class Station
   end
 end
 
-
-# ajax call 
