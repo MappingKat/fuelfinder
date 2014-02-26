@@ -22,4 +22,7 @@ class Station
     @longitude = station_response["longitude"]
     @latitude = station_response["latitude"]
   end
+
+  def self.all
+  end
 end

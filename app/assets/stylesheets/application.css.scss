@@ -1,26 +1,61 @@
 /*
  *= require normalize
- *= require demo
- *= require component
  *= require map
  *= require_self
  */
 
 /*------------------ home page ----------------*/
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'codropsicons';
+}
+
+body {
+  background: #444;
+  color: #e67e22;
+  font-weight: 300;
+  font-family: 'Lato', Calibri, Arial, sans-seriff;
+}
+
+a {
+  text-decoration: none;
+  color: #FFA300;
+  outline: none;
+}
+
+a:hover, a:focus {
+  color: #ffae19;
+  outline: none;
+}
+
 body {
   margin:0;
   padding:0;
   }
 
+.codrops-header {
+  text-align: left;
+  background: image-url('opacitydark.png');
+  margin: 0;
+  padding: 0;
+}
 
-/*---------------  side bar ---------------------*/
+h1.codrops-header  {
+  padding: 0.2em;
+  font-weight: 300;
+  font-size: 2.625em;
+  position: relative;
+}
 
-.body.row { top: 75px; bottom: 50px; }
-.row, .col { overflow: hidden; position: absolute; }
+
+/*---------------  scroll bar ---------------------*/
+
+.body.row { top: 0px; bottom: 0px; }
+.row,  { overflow: scroll; position: absolute; }
 .row { left: 0; right: 0; }
-.col { top: 0; bottom: 0; }
-.scroll-x { overflow-x: auto; }
-.scroll-y { overflow-y: auto; }
+.scroll-y { overflow-y: auto; margin: 0; padding: 0;}
 
 /*---------------------- show ------------------------*/
 header.show-page-header {
@@ -29,70 +64,78 @@ header.show-page-header {
   padding-top: 3em;
 }
 
-.show-container{
-  
+div.bottom-bar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  background: image-url('opacitydark.png');
+  border-bottom: 1px solid #a3a30e;
+  color: #515100;
+  height: 200px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index:0;
 }
 
-.show-page-header h1 {
-  margin: -1.3em 0 2px;
+ul#station-show {
+  box-sizing: border-box;
+  height: 134px;
+  -webkit-padding-start: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.station-show li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-right: 1px solid #efe3c6;
+  float: left;
+  margin: 0;
+  width: 33.33%;
+  height: 134px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+header.show-page-header {
+  margin: -2em -1em 0 0;
+  padding: 0 0 0 0;
+  z-index: 998
+}
+
+.show-page-header h2 {
   font-weight: 200;
   font-size: 200%;
-  line-height: 1em;
+  line-height: 1.3em;
+  margin-bottom: 0;
+  color: orange;
 }
 
-.show-column1 {
+#map img,
+.show-column1,
+.show-column2,
+.show-column3 {
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  background-color: transparent;
+  color: orange;
+  display: block;
+  height: 134px;
   float: left;
-  width: 25%;
-  height: 250px;
-  background-color: red;
+  padding: 0 5px 5px 5px;
+  margin: 0 5px 5px 5px;
 }
-
-#map img{
-  padding: 0 10px 10px 10px;
-  margin: 0 10px 10px 10px;
-  // position: absolute;
-}
-
-.show-column2 {
-  width: 60%;
-  float: right;
-  margin-left: 300px;
-  font-weight: 300;
-  padding: 5px;
-  margin:0;
-  height: 250px;
-  background-color: pink;
-}
-
-.show-content-1 {
-  width: 50%;
-  height: 250px;
-  // float: left;
-  clear:both;
-  display: inline;
-}
-
-.show-content-2 {
-  float: right;
-  width: 50%;
-  height: 300px;
-  // clear:both;
-  // display: block;
-}
-
 
 /*=--------------- review form -------------------*/
 fieldset {
   border:none;
-}
-
-// .reviews-summary {
-//   position: relative;
-//   text-align: center;
-// }
-
-.reviewer-info {
-  border: 0px;
 }
 
 .review-form label {
@@ -222,3 +265,137 @@ p.content {
   font-weight: normal;
   text-align: left;
 }
+
+// -------------------show page 
+.search {
+  margin-top: -1.1em;
+  margin-right: 7%;
+  position: relative;
+  height: 50px;
+  float: right;
+  overflow: hidden;
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  transition: width 0.3s;
+  -webkit-backface-visibility: hidden;
+}
+
+.search-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  background: #fff;
+  width: 55%;
+  height: 30px;
+  margin: 5px;
+  z-index: 10;
+  padding-left: 5px;
+  font-family: inherit;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+input[type="search"].search-input {
+  -webkit-appearance: none;
+}
+
+.search-input::-webkit-input-placeholder {
+  color: #efb480;
+}
+
+.search-input:-moz-placeholder {
+  color: #efb480;
+}
+
+.search-input::-moz-placeholder {
+  color: #efb480;
+}
+
+.search-input:-ms-input-placeholder {
+  color: #efb480;
+}
+
+.icon-search,
+.search-submit  {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.search-submit {
+  background: #fff; /* IE needs this */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+    filter: alpha(opacity=0); /* IE 5-7 */
+    opacity: 0;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: -1;
+}
+
+.icon-search {
+  color: #fff;
+  background: #e67e22;
+  z-index: 90;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-search:before {
+  content: image-url('search.png');
+}
+
+/* Open state */
+.search.search-open,
+.no-js .search {
+  width: 100%;
+}
+
+.search.search-open .icon-search,
+.no-js .search .icon-search {
+  background: #da6d0d;
+  color: #fff;
+  z-index: 11;
+}
+
+.search.search-open .search-submit,
+.no-js .search .search-submit {
+  z-index: 90;
+}
+
+@media screen and (max-width: 46.0625em) {
+  .column {
+    width: 100%;
+    min-width: auto;
+    min-height: auto;
+    padding: 2em; 
+    text-align: center;
+  }
+
+  .column p {
+    font-size: 1.5em;
+  }
+
+  .column:nth-child(2) {
+    text-align: center;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+  }
+}
+
+@media screen and (max-width: 25em) {
+
+  .codrops-header {
+    font-size: 80%;
+  }
+
+  .codrops-top {
+    font-size: 120%;
+  }
+}
+

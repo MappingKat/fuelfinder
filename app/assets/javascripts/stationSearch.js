@@ -11,11 +11,11 @@ jQuery(document).ready(function() {
     
     $.getJSON( route , function(data) {
       var mappy = Map.mappy;
-      var sidebar = $(".icon icon-stack");
+      var bottomBar = $("#station-show");
 
       list.empty();
       if (data.fuel_stations.length === 0) {
-        $(list).append("<li class='no-results'> Nothing Found </li>)");
+        $(bottomBar).append("<li class='no-results'> Nothing Found </li>)");
         mappy.setView([ 40.48086, -85.339523 ], 4);
         return
       };
@@ -33,7 +33,8 @@ jQuery(document).ready(function() {
           });
         });
 
-        $(sidebar).append('data-station-id=' + fuel_station.id + '>' + fuel_station.station_name);
+        $(bottomBar).append('data-station-id=' + fuel_station.id );
+        console.log(fuel_station.id)
 
           // '<li><a class="icon icon-data station-item" data-station-id=' + fuel_station.id + '>' + fuel_station.station_name + '</a></li>');
       });

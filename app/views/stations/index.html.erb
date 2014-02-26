@@ -1,36 +1,47 @@
-<div id="st-container" class="st-container">
-  <nav class="st-menu st-effect-2" id="menu-2">
-    <h2 class="icon icon-stack"></h2>
-    <div class="body row scroll-y">
-      <ul class="listings">
-      </ul>
-    </div>
-  </nav>
+<div id='mappy'></div>
 
-  <div class="st-pusher">
-
-<div class="st-content">
-      <div id='mappy'></div>
-      <div class="st-content-inner">
-          <h1 class="codrops-header">
-            FuelFinder
-            <div id="search" class="search">
-              <input class="search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-              <input class="search-submit" type="submit" value="">
-              <span class="icon-search"></span>
-            </div>
-            <!-- <div id="search-box">
-              <input id="search-input" type="text" placeholder="Find alternative fuel stations"></input>
-              <!-- <input id="search-button" type="submit" value="Search"> -->
-            </div>
-          </h1>
-        </header>
-        <div class="main clearfix">
-        </div>
-      </div>
-    </div>
+<h1 class="codrops-header">
+  FuelFinder
+  <div id="search" class="search">
+    <input class="search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+    <input class="search-submit" type="submit" value="">
+    <span class="icon-search"></span>
   </div>
+</h1>
+
+<div class="bottom-bar">
+  <ul id="station-show" class="row scroll-y">
+    <header class="show-page-header">
+      <h2>NAME</h2>
+    </header>
+         
+  <li class="show-column1">
+    <div id="map">
+      <img src="http://api.tiles.mapbox.com/v3/pzula.h69mf89n/pin-m-car(-104.987981,39.711518)/-104.987981,39.711518,16/250x250.png">
+    </div>
+  </li>
+        
+  <li class="show-column2">
+    <strong>Location: </strong> location </br>
+    <strong>Open: </strong></br>
+    <strong>Fuel Type: </strong>ELEC<br/>
+    <strong>Payments Accepted:</strong> credit
+  </li>
+
+    <li class="show-column3">
+      <h6>Reviews for this station:</h6>
+      <button id="review"> Review this station </button>
+     </li>
+  </ul>
 </div>
 
 
-
+<script>
+$('.review-form').hide();
+  $("button#review").click(function (e){
+  $('.review-form').toggle();
+  });
+  $("button#close-form").click(function (e){
+  $('.review-form').hide();
+});
+</script>

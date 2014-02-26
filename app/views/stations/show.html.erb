@@ -1,5 +1,4 @@
 <div data-role="popup" id="popup-menu">
-<div class='show-container'>
   <div class="show-column1">
     <div id="map">
      <img src="http://api.tiles.mapbox.com/v3/pzula.h69mf89n/pin-m-car(<%= @station.longitude %>,<%= @station.latitude %>)/<%= @station.longitude %>,<%= @station.latitude %>,16/250x250.png">
@@ -10,7 +9,7 @@
   <header class="show-page-header">
     <h1><%= @station.name %></h1></header>
 
-  <div id="show-content-1">
+  <span id="show-content-1">
     <% unless @station.location.nil? %>
     <strong>Location: </strong><%= @station.street %>
     <% end %>
@@ -24,34 +23,25 @@
     <% unless @station.payment.nil? %>
     <strong>Payments Accepted:</strong> <%= @station.payment %>
     <% end %>
-  </div>
+  </span>
 
-  <div id="show-content-2">    
+  <span id="show-content-2">    
+    <div class="reviews-summary">
+      <h6>Reviews for this station:</h6>
+        <%= render partial:"reviews/review", collection: @reviews %>
+        <!-- scrolley -->
+    </div>
     <button id="review"> Review this station </button>
 
     <div class='review-form'>
       <button id="close-form"> x </button>
       <h3 class="form-header"> Share what you know about this station! </h3>
       <%= render partial: '/reviews/review_form', locals: { station_id: @station_id } %>
-    </div>
+    </span>
   <br>
-    <div class="reviews-summary">
-      <h6>Reviews for this station:</h6>
-        <%= render partial:"reviews/review", collection: @reviews %>
-        <!-- scrolley -->
-    </div>
   </div>
 </div>
 </div>
 
-<script>
-$('.review-form').hide();
-  $("button#review").click(function (e){
-  $('.review-form').toggle();
-  });
-  $("button#close-form").click(function (e){
-  $('.review-form').hide();
-});
-</script>
 
 

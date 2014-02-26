@@ -20,8 +20,8 @@ class ReviewFetcher
     end
   end
 
-  def self.find(station_id)
-    response = connection.get "/api/v1/reviews/#{station_id}.json"
+  def self.find(id)
+    response = connection.get "/api/v1/reviews/#{@id}.json"
     body = JSON.parse(response.body)
     body.map {|review| Review.new(review)}
   end
