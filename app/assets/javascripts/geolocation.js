@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {
+  $(".bottom-bar").hide();
   Geolocation = {};
 
   Geolocation.getLocation = function() {
