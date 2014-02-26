@@ -6,7 +6,8 @@ window.loadMap = function(position) {
   var coords = position.coords;
   userPosition = [coords.latitude, coords.longitude];
 
-  var mappy = L.mapbox.map("mappy", "katrina.hcf777p1", { zoomControl: false }).setView(userPosition, 10);
+  var mappy = L.mapbox.map("mappy", "katrina.hcf777p1", { zoomControl: false }).setView(userPosition, 15);
+  // .addControl(L.mapbox.geocoderControl('katrina.hcf777p1'));
   new L.Control.Zoom({ position: 'topright' }).addTo(mappy);
   Map.mappy = mappy;
 
@@ -26,11 +27,14 @@ window.loadMap = function(position) {
         layer.on('click', function(e) {
           mappy.setView(e.latlng);
            $(".main-info").click(function () {
-            $('#station-show').empty;
-              $('#station-show').append('<header class="show-page-header"><h2>' + fuel_station.station_name +'</h2></header><li class="show-column1"><div id="map"><img src="http://api.tiles.mapbox.com/v3/pzula.h69mf89n/pin-m-car(' + fuel_station.longitude + ',' + fuel_station.latitude + ')/' + fuel_station.longitude + ',' + fuel_station.latitude + ',16/250x250.png"></div></li><li class="show-column2"><strong>Location: </strong>' + fuel_station.intersection_directions + '</br>' + fuel_station.city + ',' + fuel_station.state + '</br><strong>Open: </strong>' + fuel_station.access_days_time + '</br><strong>Contact: </strong>' + fuel_station.station_phone + '</br></br><strong>Fuel Type: </strong>' + fuel_station.fuel_type_code + '<br/><strong>Payments Accepted:</strong>' + fuel_station.payment +'</li>');
-                $(".bottom-bar").toggle();
-              });
-          
+              var addInfo = $('#station-show').empty().append('<header class="show-page-header"><h2>' + fuel_station.station_name +'</h2></header><li class="show-column1"><div id="map"><img src="http://api.tiles.mapbox.com/v3/pzula.h69mf89n/pin-m-car(' + fuel_station.longitude + ',' + fuel_station.latitude + ')/' + fuel_station.longitude + ',' + fuel_station.latitude + ',16/250x250.png"></div></li><li class="show-column2"><strong>Location: </strong>' + fuel_station.intersection_directions + '</br>' + fuel_station.city + ',' + fuel_station.state + '</br><strong>Open: </strong>' + fuel_station.access_days_time + '</br><strong>Contact: </strong>' + fuel_station.station_phone + '</br></br><strong>Fuel Type: </strong>' + fuel_station.fuel_type_code + '<br/><strong>Payments Accepted:</strong>' + fuel_station.payment +'</li>');
+              if ($(".bottom-bar").is(":visible") ){
+                  return addInfo;
+                } else {
+                  $(".bottom-bar").toggle();
+                  return addInfo;
+                };
+            });
           });
         });
       });

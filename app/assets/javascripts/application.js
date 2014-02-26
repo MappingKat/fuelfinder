@@ -16,5 +16,5 @@
 //= require map
 //= require stationSearch
 //= require geolocation
-//= require searchButton
 //= require websocket
+//= require searchButton

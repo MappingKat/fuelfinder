@@ -68,13 +68,17 @@ button:hover {
   position: absolute;
   word-wrap: break-word; }
 
-.row { left: 0; right: 0; }
+.row { 
+  left: 0; 
+  right: 0; 
+ }
 .scroll-y { 
-  overflow-y: auto; 
+  // overflow-y: auto; 
   margin: 0; 
   padding: 0;
   padding-right: 5px;
-  margin-bottom: 20px;}
+  margin-bottom: 20px;
+  }
 
 /*---------------------- show ------------------------*/
 header.show-page-header {
