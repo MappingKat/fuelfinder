@@ -3,17 +3,14 @@ jQuery(document).ready(function() {
 
   Search.performSearch = function() {
     var container = $('.st-container');
-    container.addClass('st-menu-open');
-    container.addClass('st-effect-2');
 
-    var searchInput = $("#search-input").val();
+    var searchInput = $("input#search-input").val();
     var route = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=GOMRjS7IKgQCRujXnzJuEWpTEdnzlQgp3s2ZlI9B&location=" + searchInput ;
     
     $.getJSON( route , function(data) {
       var mappy = Map.mappy;
-      var bottomBar = $("#station-show");
-
-      list.empty();
+      var bottomBar = $('.bottomBar')
+      bottomBar.empty();
       if (data.fuel_stations.length === 0) {
         $(bottomBar).append("<li class='no-results'> Nothing Found </li>)");
         mappy.setView([ 40.48086, -85.339523 ], 4);
@@ -33,20 +30,14 @@ jQuery(document).ready(function() {
           });
         });
 
-        $(bottomBar).append('data-station-id=' + fuel_station.id );
-        console.log(fuel_station.id)
+        // $(bottomBar).append('data-station-id=' + fuel_station.id );
+        // get nearest station
+        // console.log(fuel_station.id)
 
           // '<li><a class="icon icon-data station-item" data-station-id=' + fuel_station.id + '>' + fuel_station.station_name + '</a></li>');
       });
     });
     Search.addCloseListeners();
-  };
-
-  Search.addCloseListeners = function() {
-    // var container = $('.st-container');
-    // $(".st-pusher").click(function (e) {
-    //   container.removeClass('st-menu-open');
-    // });
   };
 
   $("#search-submit").click(function (e) {

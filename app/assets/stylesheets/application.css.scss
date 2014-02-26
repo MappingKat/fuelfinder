@@ -49,13 +49,32 @@ h1.codrops-header  {
   position: relative;
 }
 
+button {
+  border: none;
+  background: blue;
+  cursor: pointer;
+  padding: 0.6em 1.2em;
+}
+
+button:hover {
+  background: orange;
+}
+
 
 /*---------------  scroll bar ---------------------*/
 
 .body.row { top: 0px; bottom: 0px; }
-.row,  { overflow: scroll; position: absolute; }
+.row,  { 
+  position: absolute;
+  word-wrap: break-word; }
+
 .row { left: 0; right: 0; }
-.scroll-y { overflow-y: auto; margin: 0; padding: 0;}
+.scroll-y { 
+  overflow-y: auto; 
+  margin: 0; 
+  padding: 0;
+  padding-right: 5px;
+  margin-bottom: 20px;}
 
 /*---------------------- show ------------------------*/
 header.show-page-header {
@@ -132,6 +151,11 @@ header.show-page-header {
   padding: 0 5px 5px 5px;
   margin: 0 5px 5px 5px;
 }
+
+.show-column3 p{
+  margin: 0;
+  padding:10px 0 10px;
+  }
 
 /*=--------------- review form -------------------*/
 fieldset {

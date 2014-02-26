@@ -12,4 +12,5 @@ class StationFetcher
     response = connection.get "#{id}.json?api_key=GOMRjS7IKgQCRujXnzJuEWpTEdnzlQgp3s2ZlI9B"
     Station.new(JSON.parse(response.body))
  end
+
 end
