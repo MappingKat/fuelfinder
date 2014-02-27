@@ -27,25 +27,23 @@ $.getJSON( stationData, function( data ) {
       var fuel = fuel_station.fuel_type_code
       var payment = fuel_station.cards_accepted
       var address = fuel_station.intersection_directions
-        if (fuel== null ) {
-            fuel = ""
-          } else {
+      
+      if (fuel== null ) { fuel = "" } else {
             fuel = '<strong>Fuel Type: </strong>' + fuel + '</strong> '
           }
-
-         if ( payment == null ) { payment = ""
-          } else {
+      if ( payment == null ) { payment = "" } else {
             payment = '<strong>Cards Accepted:</strong>' + payment 
           }
-         if ( address == null ) { address = ""
-          } else {
+      if ( address == null ) { address = "" } else {
             address = address + '</br>'
           }
 
         // mappy.setView(e.latlng);
          $(".main-info").click(function () {
             var addInfo = $('#station-show').empty().append('<header class="show-page-header"><h2>' + fuel_station.station_name +'</h2></header><li class="show-column1"><div id="map"><img src="http://api.tiles.mapbox.com/v3/pzula.h69mf89n/pin-m-car(' + fuel_station.longitude + ',' + fuel_station.latitude + ')/' + fuel_station.longitude + ',' + fuel_station.latitude + ',16/250x250.png"></div></li><li class="show-column2"><span class="addressy">'+  address + fuel_station.city + ',' + fuel_station.state + '</span></br></br><strong>Contact: </strong>' + fuel_station.station_phone + '</br><strong>Open: </strong>' + fuel_station.access_days_time +'</br></br>' + fuel + '<br/>' + payment + '</li>');
+            
             console.log(addInfo);
+
             if ($(".bottom-bar").is(":visible") ){
                 return addInfo;
               } else {
