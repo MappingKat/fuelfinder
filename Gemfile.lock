@@ -69,6 +69,7 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    geocoder (1.1.9)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -215,6 +216,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
   faraday
+  geocoder
   jazz_hands
   jbuilder (~> 1.2)
   jquery-rails
