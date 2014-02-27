@@ -11,30 +11,5 @@
 
 <div class="bottom-bar">
   <ul id="station-show" class="row scroll-y">
-    
-
-    <li class="show-column3">
-      <p>Reviews for this station:</p></br>
-      <button id="review"> Review this station </button>
-     </li>
   </ul>
 </div>
-
-<div class='review-form'>
-  <button id="close-form"> x </button>
-  <h3 class="form-header"> Share what you know about this station! </h3>
-  <%= render partial: '/reviews/review_form', locals: { station_id: @station_id } %>
-</div>
-
-<script>
-
- 
-
-$('.review-form').hide();
-//   $("button#review").click(function (e){
-//     $('.review-form').toggle();
-//   });
-//   $("button#close-form").click(function (e){
-//     $('.review-form').hide();
-//   });
-</script>
