@@ -12,8 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require stations
-//= require map
-//= require stationSearch
-//= require geolocation
-//= require websocket
+//= require_tree .
