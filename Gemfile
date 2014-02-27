@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'thin'
 gem 'faraday'
 gem 'rails_12factor'
+gem 'geocoder'
 
 group :doc do
   gem 'sdoc', require: false
